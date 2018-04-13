@@ -1,4 +1,24 @@
 <!--pages/list/list.wxml-->
-<text>pages/list/list.wxml</text>
-<view>{{text}}</view>
-<button bindtap='changeText'>Change Data</button>
+<view class='list-box'>
+  <view class='section'>
+    <picker mode='region' bindchange='bindRegionChange' value='{{region}}'>
+      <view class='picker'>
+        {{region[2]}}
+      </view>
+    </picker>
+  </view>
+  <block class='intro' wx:for="{{data}}">
+    <view class="intro-item">
+      <image class="intro-item-left" src='{{item.url}}' mode='aspectFit'></image>
+      <view class="intro-item-right">
+        <text>{{item.title}}</text>
+        <progress percent='{{item.percent}}' active show-info stroke-width='10' color='#fec0bf' activeColor='#fe3e2d' backgroundColor='#fec0bf' active-mode></progress>
+        <view class='opt'>
+          <text class="price">￥{{item.price}}</text>
+          <text class="original-price">￥{{item.originalPrice}}</text>
+          <button size='mini' type='default' bindtap=''>立即抢</button>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>

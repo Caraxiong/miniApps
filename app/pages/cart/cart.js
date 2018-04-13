@@ -1,35 +1,13 @@
-// pages/list/list.js
-// object 内容在页面加载时会进行一次深拷贝，需考虑数据大小对页面加载的开销
+// pages/cart/cart.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    region: ['浙江省','杭州市','西湖区'],
-    data: [
-      {
-        url:'/pages/resources/list.png',
-        title:'五星',
-        percent: 80,
-        price: 5000,
-        originalPrice: 10000
-      },
-      {
-        url: '/pages/resources/list.png',
-        title: '五星',
-        percent: 40,
-        price: 5000,
-        originalPrice: 10000
-      },
-    ],
+  
   },
-  bindRegionChange: function (e) {
-    console.log('picker发送选择改变，携带值为', e)
-    this.setData({
-      region: e.detail.value
-    })
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */

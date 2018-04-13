@@ -1,33 +1,37 @@
-// pages/list/list.js
-// object 内容在页面加载时会进行一次深拷贝，需考虑数据大小对页面加载的开销
+// pages/detail/detail.js
+var order = ['red', 'yellow', 'blue', 'green', 'red']
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    region: ['浙江省','杭州市','西湖区'],
-    data: [
-      {
-        url:'/pages/resources/list.png',
-        title:'五星',
-        percent: 80,
-        price: 5000,
-        originalPrice: 10000
-      },
-      {
-        url: '/pages/resources/list.png',
-        title: '五星',
-        percent: 40,
-        price: 5000,
-        originalPrice: 10000
-      },
-    ],
+    toView: 'red',
+    scrollTop: 100
   },
-  bindRegionChange: function (e) {
-    console.log('picker发送选择改变，携带值为', e)
+
+  upper: function (e) {
+    console.log(e)
+  },
+  lower: function (e) {
+    console.log(e)
+  },
+  scroll: function (e) {
+    console.log(e)
+  },
+  tap: function (e) {
+    for (var i = 0; i < order.length; ++i) {
+      if (order[i] === this.data.toView) {
+        this.setData({
+          toView: order[i + 1]
+        })
+        break
+      }
+    }
+  },
+  tapMove: function (e) {
     this.setData({
-      region: e.detail.value
+      scrollTop: this.data.scrollTop + 10
     })
   },
   /**

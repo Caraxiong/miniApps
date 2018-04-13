@@ -1,13 +1,30 @@
 <!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+<view>
+  <swiper indicator-indicator-dots='{{indicatorDots}}' autoplay='{{autoplay}}' interval='{{interval}}'>
+    <block wx:for="{{imgUrls}}">
+      <swiper-item>
+        <image style="width: 100%;" src='{{item}}' class='slide-image' mode='aspectFit'/>
+      </swiper-item>
     </block>
+  </swiper>
+  <view class='show-part'>
+    <view class='part-left' data-param='qg' bindtap='go'>
+      抢购
+    </view>
+    <view class='part-right'>
+      <view class='part-right-top' data-param='yhh' bindtap='go'>有好货</view>
+      <view class='part-right-bottom'>
+        <view class='part-right-bottom-left' data-param='agj' bindtap='go'>
+        爱逛街
+        </view>
+        <view class='part-right-bottom-right' data-param='bm' bindtap='go'>
+        必买
+        </view>
+      </view>
+    </view>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
+  <view class='footer'>
+    <navigator class="f-tab" url='/pages/cart/cart' hover-class='navigator-hover'>购物车</navigator>
+    <navigator class="f-tab" url='/pages/about/about' hover-class='navigator-hover'>关于我们</navigator>
   </view>
 </view>

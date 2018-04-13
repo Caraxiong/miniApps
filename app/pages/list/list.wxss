@@ -1,1 +1,37 @@
 /* pages/list/list.wxss */
+.list-box{
+  padding: 0 20px;
+}
+.intro{
+  display: flex;
+  flex-direction: column;
+}
+.intro-item{
+  display: flex;
+  margin-top: 20px;
+}
+.intro-item-left{
+  width: 64px;
+  height:64px;
+  margin-right: 20px;
+}
+.intro-item-right{
+  flex: 1;
+}
+.price{
+  color:#fa0000;
+  font-size: 16px;
+  margin-right: 10px;
+}
+.original-price{
+  color: #aaa;
+  font-size: 12px;
+  text-decoration:line-through;
+}
+progress{
+  color:#fe3e2d;
+}
+.opt{
+  display:flex;
+  align-items:center;
+}
